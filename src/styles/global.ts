@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: ${(props) => props.theme["base-background"]};
+    background: ${(props) => props.theme["base-input"]};
     color: ${(props) => props.theme["base-text"]};
     -webkit-font-smoothing: antialiased;
   }
