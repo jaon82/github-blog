@@ -4,9 +4,9 @@ import headerBackground from "../../assets/headerBackground.svg";
 
 export const LayoutContainer = styled.div`
   max-width: 1440px;
-  height: 100vh;
   margin: 0 auto;
   background: ${(props) => props.theme["base-background"]};
+  padding-bottom: 14rem;
 `;
 
 export const Header = styled.div`
@@ -21,4 +21,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 864px;
+  margin: 0 auto;
 `;
