@@ -1,18 +1,20 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { mixins } from "../../styles/mixins";
 
-export const PostCardContainer = styled.div`
+export const PostCardContainer = styled(Link)`
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   padding: 2rem;
   background-color: ${(props) => props.theme["base-post"]};
   border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
 
   &:hover {
     box-shadow: 0 0 0 2px ${(props) => props.theme["base-label"]};
     transition: 0.5s;
-    cursor: pointer;
   }
 `;
 

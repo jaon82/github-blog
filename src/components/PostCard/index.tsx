@@ -2,7 +2,7 @@ import { PostCardContainer, PostCardHeader, PostCardTime } from "./styles";
 
 export default function PostCard() {
   return (
-    <PostCardContainer>
+    <PostCardContainer to="/post">
       <PostCardHeader>
         <h1>JavaScript data types and data structures</h1>
         <PostCardTime>Há 1 dia</PostCardTime>
