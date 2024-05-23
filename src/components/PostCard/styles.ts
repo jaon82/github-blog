@@ -8,6 +8,12 @@ export const PostCardContainer = styled.div`
   padding: 2rem;
   background-color: ${(props) => props.theme["base-post"]};
   border-radius: 10px;
+
+  &:hover {
+    box-shadow: 0 0 0 2px ${(props) => props.theme["base-label"]};
+    transition: 0.5s;
+    cursor: pointer;
+  }
 `;
 
 export const PostCardHeader = styled.div`
