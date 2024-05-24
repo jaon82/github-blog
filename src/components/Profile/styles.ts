@@ -17,6 +17,9 @@ export const ProfileAvatar = styled.div`
   width: 9.25rem;
   height: 9.25rem;
   border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 `;
 
 export const ProfileInfo = styled.div`

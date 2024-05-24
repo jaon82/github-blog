@@ -10,7 +10,7 @@ export default function Posts() {
           <span>Publicações</span>
           <span>6 publicações</span>
         </div>
-        <TextInput />
+        <TextInput placeholder="Buscar conteúdo" />
       </PostsHeader>
       <PostsList>
         <PostCard />

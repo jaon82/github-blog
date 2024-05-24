@@ -15,41 +15,64 @@ import {
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import avatarImg from "../../assets/avatar.png";
+import { useEffect, useState } from "react";
+import { api } from "../../lib/axios";
 
+interface ProfileDataProps {
+  avatar_url: string;
+  bio: string;
+  html_url: string;
+  company: string;
+  followers: number;
+  login: string;
+  name: string;
+}
 export default function Profile() {
+  const [profileData, setProfileData] = useState<ProfileDataProps | null>(null);
+
+  useEffect(() => {
+    async function getData() {
+      const profileData = await api.get("users/rocketseat-education");
+      console.log(profileData.data);
+      setProfileData(profileData.data);
+    }
+    getData();
+  }, []);
+
+  if (!profileData) {
+    return "Loading data...";
+  }
+
   return (
     <ProfileContainer>
       <ProfileAvatar>
-        <img src={avatarImg} width={148} />
+        <img src={profileData.avatar_url} width={148} />
       </ProfileAvatar>
       <ProfileInfo>
         <div>
           <ProfileHeader>
-            <h1>Cameron Williamson</h1>
-            <StyledLink to="http://www.google.com" target="_blank">
+            <h1>{profileData.name}</h1>
+            <StyledLink to={profileData.html_url} target="_blank">
               github
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </StyledLink>
           </ProfileHeader>
-          <ProfileDescription>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </ProfileDescription>
+          <ProfileDescription>{profileData.bio}</ProfileDescription>
         </div>
         <ProfileLinks>
           <div>
             <FontAwesomeIcon icon={faGithub} />
-            <span>cameronwll</span>
+            <span>{profileData.login}</span>
           </div>
-          <div>
-            <FontAwesomeIcon icon={faBuilding} />
-            <span>Rocketseat</span>
-          </div>
+          {profileData.company && (
+            <div>
+              <FontAwesomeIcon icon={faBuilding} />
+              <span>{profileData.company}</span>
+            </div>
+          )}
           <div>
             <FontAwesomeIcon icon={faUserGroup} />
-            <span>32 seguidores</span>
+            <span>{profileData.followers} seguidores</span>
           </div>
         </ProfileLinks>
       </ProfileInfo>
