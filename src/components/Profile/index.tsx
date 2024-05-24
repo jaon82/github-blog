@@ -33,7 +33,6 @@ export default function Profile() {
   useEffect(() => {
     async function getData() {
       const profileData = await api.get("users/rocketseat-education");
-      console.log(profileData.data);
       setProfileData(profileData.data);
     }
     getData();

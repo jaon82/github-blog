@@ -1,16 +1,20 @@
+import { PostData } from "../Posts";
 import { PostCardContainer, PostCardHeader, PostCardTime } from "./styles";
 
-export default function PostCard() {
+interface PostCardProps {
+  post: PostData;
+}
+export default function PostCard({ post }: PostCardProps) {
   return (
-    <PostCardContainer to="/post">
+    <PostCardContainer to={`/post/${post.id}`}>
       <PostCardHeader>
-        <h1>JavaScript data types and data structures</h1>
+        <h1>{post.title}</h1>
         <PostCardTime>Há 1 dia</PostCardTime>
       </PostCardHeader>
       <div>
-        Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra
-        massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar
-        vel mass.
+        {post.body.length < 200
+          ? post.body
+          : `${post.body.substring(0, 160)}...`}
       </div>
     </PostCardContainer>
   );
