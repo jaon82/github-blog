@@ -12,9 +12,9 @@ export default function PostCard({ post }: PostCardProps) {
         <PostCardTime>Há 1 dia</PostCardTime>
       </PostCardHeader>
       <div>
-        {post.body.length < 200
+        {post.body?.length < 200
           ? post.body
-          : `${post.body.substring(0, 160)}...`}
+          : `${post.body ? post.body.substring(0, 160) + "..." : ""}`}
       </div>
     </PostCardContainer>
   );
