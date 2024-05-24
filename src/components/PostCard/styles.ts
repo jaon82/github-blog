@@ -31,6 +31,6 @@ export const PostCardHeader = styled.div`
 export const PostCardTime = styled.span`
   ${mixins.fonts.textS}
   color: ${(props) => props.theme["base-span"]};
-  min-width: 5rem;
+  min-width: 6rem;
   text-align: right;
 `;

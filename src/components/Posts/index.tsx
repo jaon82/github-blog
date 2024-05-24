@@ -9,7 +9,7 @@ import TextInput from "../TextInput";
 import { PostsContainer, PostsHeader, PostsList } from "./styles";
 
 export interface PostData {
-  id: number;
+  number: number;
   title: string;
   body: string;
   created_at: string;
@@ -67,7 +67,7 @@ export default function Posts() {
       </PostsHeader>
       <PostsList>
         {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
+          <PostCard key={post.number} post={post} />
         ))}
       </PostsList>
     </PostsContainer>
