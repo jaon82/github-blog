@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Markdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import PostHeader from "../../components/PostHeader";
 import { api } from "../../lib/axios";
@@ -35,7 +36,9 @@ export default function Post() {
   return (
     <PostContainer>
       <PostHeader post={postData} />
-      <PostContent>{postData.body}</PostContent>
+      <PostContent>
+        <Markdown>{postData.body}</Markdown>
+      </PostContent>
     </PostContainer>
   );
 }
